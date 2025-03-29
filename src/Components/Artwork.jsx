@@ -1,11 +1,9 @@
 import { useState, useEffect } from 'react';
-import Bans from './Bans';
 
-function Artwork() {
+function Artwork({ banList, toggleBan }) {
   const [artwork, setArtwork] = useState(null);
   const [loading, setLoading] = useState(false);
   const [totalPages, setTotalPages] = useState(1);
-  const [banList, setBanList] = useState([]);
 
   const fetchTotalPages = async () => {
     try {
@@ -75,14 +73,6 @@ function Artwork() {
     }
   };
 
-  const toggleBan = (attribute) => {
-    setBanList((prevBanList) =>
-      prevBanList.includes(attribute)
-        ? prevBanList.filter((item) => item !== attribute) // Remove from ban list
-        : [...prevBanList, attribute] // Add to ban list
-    );
-  };
-
   // Fetch the first artwork
   useEffect(() => {
     fetchTotalPages().then(() => {
@@ -111,8 +101,6 @@ function Artwork() {
           <img src={artwork.image} alt={artwork.title} />
         </div>
       )}
-
-      <Bans banList={banList} toggleBan={toggleBan} />
     </div>
   );
 }
