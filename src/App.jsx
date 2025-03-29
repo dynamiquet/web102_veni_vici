@@ -1,5 +1,5 @@
 import './App.css';
-import Artwork from '../Components/Artwork';
+import Artwork from './Components/Artwork';
 
 function App() {
   return (
