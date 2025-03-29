@@ -17,7 +17,7 @@ function App() {
   return (
     <div className="app-container">
       <div className="main-content">
-        <h1>Art Discovery!</h1>
+        <h1 id="heading">Art Discovery!</h1>
         <Artwork banList={banList} toggleBan={toggleBan} />
       </div>
       <div className="side-bar">
